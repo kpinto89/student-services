@@ -2,7 +2,6 @@ package com.demo.controller;
 
 import com.demo.model.Student;
 import com.demo.service.impl.StudentServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -10,8 +9,11 @@ import java.util.List;
 @RestController
 public class StudentController {
 
-    @Autowired
-    private StudentServiceImpl studentService;
+    private final StudentServiceImpl studentService;
+
+    public StudentController(StudentServiceImpl studentService) {
+        this.studentService = studentService;
+    }
 
     @GetMapping("/students")
     public List<Student> retrieveStudents() {
@@ -33,7 +35,7 @@ public class StudentController {
         return studentService.createStudent(student);
     }
 
-    @PutMapping("/students/{id}")
+    @PutMapping("/students")
     public Student updateStudent(@RequestBody Student student) {
         return studentService.updateStudent(student);
     }

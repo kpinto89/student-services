@@ -7,14 +7,16 @@ import com.demo.exception.StudentNotFoundException;
 import com.demo.model.Student;
 import com.demo.repository.StudentRepository;
 import com.demo.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
+
+    public StudentServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     @Override
     public List<Student> retrieveStudents() {

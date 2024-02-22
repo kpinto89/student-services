@@ -2,16 +2,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.demo</groupId>
-  <artifactId>student-application-services</artifactId>
+  <artifactId>student-services</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
-  <name>student-application-services</name>
+  <name>student-services</name>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.1.2</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <relativePath/>
   </parent>
 
   <properties>
@@ -57,6 +57,7 @@
   </dependencies>
 
   <build>
+    <finalName>student-services</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
